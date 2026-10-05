@@ -1,0 +1,55 @@
+{
+  "firmName": "Mazzy Law PLLC",
+  "shortName": "Mazzy Law",
+  "attorneyName": "Mazzy",
+  "tagline": "Counsel for real estate, business, and estate matters.",
+  "description": "Mazzy Law PLLC advises individuals, entrepreneurs, business owners, investors, and corporate clients throughout New York and New Jersey on real estate transactions, business and corporate law, estate planning, tax planning, commercial transactions, and commercial litigation.",
+
+  "address": {
+    "line1": "535 Fifth Avenue, 4th Flr #1035",
+    "city": "New York",
+    "state": "NY",
+    "zip": "10017"
+  },
+  "phone": {
+    "display": "(917) 671-9019",
+    "href": "+19176719019"
+  },
+  "email": "",
+  "hours": "",
+
+  "nav": [
+    { "label": "Home", "path": "" },
+    { "label": "Practice Areas", "path": "practice-areas/" },
+    { "label": "About Us", "path": "about/" },
+    { "label": "Contact Us", "path": "contact/" }
+  ],
+  "footerLinks": [
+    { "label": "Disclaimers & Notices", "path": "disclaimers/" }
+  ],
+
+  "theme": {
+    "default": "grey",
+    "available": ["grey", "blue"],
+    "showSwitcher": true
+  },
+
+  "hero": {
+    "image": "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee",
+    "imageIsUnsplash": true,
+    "alt": "Midtown Manhattan skyline with the Empire State Building at dusk",
+    "credit": "Photograph by Michael Discenza on Unsplash",
+    "creditUrl": "https://unsplash.com/photos/5omwAMDxmkU"
+  },
+
+  "contactForm": {
+    "provider": "formspree",
+    "formId": ""
+  },
+
+  "seo": {
+    "siteUrl": "https://karamathalip.github.io/mazzy-law/",
+    "basePath": "/mazzy-law/",
+    "indexable": false
+  }
+}

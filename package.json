@@ -1,0 +1,15 @@
+{
+  "name": "mazzy-law",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static website for Mazzy Law PLLC",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --serve",
+    "deploy": "node build.mjs && node deploy.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

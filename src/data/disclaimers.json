@@ -1,0 +1,57 @@
+{
+  "title": "Disclaimers & Notices",
+  "subtitle": "Mazzy Law PLLC — Website Disclaimers & Notices",
+  "sections": [
+    {
+      "id": "no-legal-advice",
+      "title": "No Legal Advice",
+      "body": [
+        { "text": "The content on this website is provided for informational purposes only and should not be used as a substitute for professional legal advice, analysis, or representation. Do not act on any information on this website to resolve any matter without first seeking legal advice from a licensed legal counsel in the relevant jurisdiction. Access and or transmission of information on this website does not create an attorney-client relationship between you and Mazzy Law PLLC." }
+      ]
+    },
+    {
+      "id": "no-attorney-client-relationship",
+      "title": "No Attorney – Client Relationship",
+      "body": [
+        { "text": "Using this website, reading its content, or submitting a message through any contact form does not create an attorney-client relationship between you and Mazzy Law PLLC and any of agents. An attorney-client relationship with Mazzy Law PLLC is established only upon the execution of a written engagement agreement. The contacting of Mazzy Law PLLC through this website, by email, telephone, or by any other means does not create an attorney-client relationship unless an agreement is signed. An unsolicited information submitted to Mazzy Law PLLC does not automatically create an attorney-client relationship and will not be treated as confidential unless a formal engagement agreement has been agreed upon and signed by Mazzy Law PLLC and the client. Mazzy Law PLLC reserves the right to represent parties with adverse interest to yours unless and until a formal engagement agreement is agreed upon and formally executed by Mazzy Law PLLC and you." }
+      ]
+    },
+    {
+      "id": "confidentiality",
+      "title": "Confidentiality Notice",
+      "body": [
+        { "text": "Do not send any confidential, secret, or sensitive information through this website or via email until a formal, written attorney-client engagement agreement has been signed. Unsolicited emails and data do not receive privileged or confidential treatment." }
+      ]
+    },
+    {
+      "id": "attorney-advertising",
+      "title": "Attorney Advertising Notice",
+      "body": [
+        { "label": "Legal Advertising", "text": "The materials and information contained on this website may be considered Attorney Advertising." },
+        { "label": "Past Results", "text": "Prior results do not guarantee a similar outcome. Case complexities, facts, and legal circumstances vary significantly, and any historical case outcomes or client testimonials referenced on this website are not indicative of future performances." }
+      ]
+    },
+    {
+      "id": "user-responsibility",
+      "title": "User Responsibility",
+      "body": [
+        { "text": "You should not act or refrain from acting based on any information found on this site. Always seek advice from a licensed attorney in your specific jurisdiction for any legal issues or concerns." }
+      ]
+    },
+    {
+      "id": "testimonials",
+      "title": "Testimonials and Case Reviews",
+      "body": [
+        { "label": "Client Testimonials", "text": "Any endorsements, reviews, or testimonials found on this website represent the individual experiences and opinions of specific clients." },
+        { "label": "Varying Results", "text": "These testimonials do not constitute a warranty, guarantee, or prediction regarding the outcome of your specific legal matter. Every case is unique and must be evaluated on its own merits" }
+      ]
+    },
+    {
+      "id": "no-warranty",
+      "title": "No Warranty",
+      "body": [
+        { "text": "All information on this website is provided “as is” without any representation or warranties of any kind, express or implied. Mazzy Law PLLC makes no representations or warranties as to the accuracy, completeness, or timeliness of any information on this website. Mazzy Law PLLC shall not be liable for any damages of any type arising from your use of, or reliance on, any information contained on this website." }
+      ]
+    }
+  ]
+}
