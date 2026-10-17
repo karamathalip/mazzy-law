@@ -10,9 +10,9 @@ small build script with **no dependencies** (Node 18+ only, nothing to install).
 ## Palette and typography
 
 - **Palette:** the client chose the light-grey palette with the gold accent (`theme.default: "grey"`
-  in `src/data/site.json`). The light-blue variant is still defined in `src/assets/css/tokens.css`
-  and can be previewed with `?theme=blue`; set `theme.showSwitcher` to `true` to bring back the
-  on-page palette switch.
+  in `src/data/site.json`). The light-blue variant is still defined in `src/assets/css/tokens.css`.
+  While `theme.showSwitcher` is `false` the palette is locked: `?theme=` links and any choice a
+  visitor made during the preview are ignored. Set it to `true` to bring back the palette switch.
 - **Typography:** Times New Roman throughout (a system font, so nothing is downloaded). Body text
   is 12 pt; paragraph titles are 13–14 pt bold. Only the page titles and the home-page headline
   are larger. All sizes are set in `src/assets/css/tokens.css`.

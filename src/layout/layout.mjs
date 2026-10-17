@@ -150,7 +150,7 @@ function themeSwitcher(ctx) {
 export function renderLayout(ctx, body) {
   const { site, root, page } = ctx;
   return `<!doctype html>
-<html lang="en" data-theme="${site.theme.default}">
+<html lang="en" data-theme="${site.theme.default}"${site.theme.showSwitcher ? '' : ' data-theme-locked'}>
 ${head(ctx)}
 <body class="page-${page.id}">
 <a class="skip-link" href="#main">Skip to main content</a>
