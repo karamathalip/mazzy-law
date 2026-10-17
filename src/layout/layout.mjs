@@ -89,9 +89,6 @@ function footer(ctx) {
   // The Contact page already lists the address and telephone in its body, so the
   // footer leaves them out there; every other page shows them once, here.
   const showContact = !page.hideFooterContact;
-  const credits = (page.photoCredits || [])
-    .map((c) => `<a href="${esc(c.creditUrl)}" rel="noopener">${esc(c.credit)}</a>`)
-    .join(' and ');
   return `<footer class="site-footer">
   <div class="container site-footer__grid">
     <div class="site-footer__brand">
@@ -125,7 +122,6 @@ function footer(ctx) {
     <p><strong>Attorney Advertising.</strong> The materials and information contained on this website may be considered Attorney Advertising. Prior results do not guarantee a similar outcome. The content on this website is provided for informational purposes only and does not create an attorney-client relationship. <a href="${root}disclaimers/">Read the full disclaimers and notices</a>.</p>
     <p class="site-footer__meta">
       <span>&copy; ${year} ${esc(site.firmName)}</span>
-      ${credits ? `<span>Photographs by ${credits} on Unsplash</span>` : ''}
     </p>
    </div>
   </div>

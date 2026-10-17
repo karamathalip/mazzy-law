@@ -7,9 +7,7 @@ export default {
   description:
     'Mazzy Law PLLC, New York. Real estate, business and corporate law, estate planning, tax planning, and commercial transactions for individuals and businesses in New York and New Jersey.',
   render(ctx) {
-    const { site, root, page } = ctx;
-    // Footer credits for the two photographs used on this page.
-    page.photoCredits = [site.hero, site.mission];
+    const { site, root } = ctx;
     return `
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero__media">

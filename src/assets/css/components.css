@@ -304,7 +304,7 @@ fieldset[disabled] .btn {
   max-width: 40rem;
   margin-top: var(--space-5);
   color: var(--ink-soft);
-  font-size: var(--fs-500);
+  font-size: var(--fs-body);
   line-height: 1.5;
 }
 
