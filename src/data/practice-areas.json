@@ -2,8 +2,6 @@
   {
     "id": "real-estate",
     "title": "Real Estate Transactions",
-    "icon": "building",
-    "summary": "Representation in all aspects of real estate transactions, including acquisitions and sales, joint ventures, leasing and financing, from first-time home purchases to commercial development.",
     "intro": [
       "Real estate transactions across the New York metropolitan area demand sophisticated legal supervision, sharp risk mitigation, and seamless execution. At Mazzy Law we deliver institutional-grade legal counsel with the agility of a boutique practice.",
       "Operating at the intersection of complex commercial development, luxury wealth management, and residential capital deployment, we protect your equity and advance your positions in one of the world’s most competitive property markets. Whether you are breaking ground on acquiring your very first single family home, a multi-family development, or restructuring a high-value portfolio, our firm ensures your transactional structures are resilient and your risk is controlled.",
@@ -14,27 +12,27 @@
         "title": "First-Time Homebuyers & Residential Closings",
         "intro": "Navigating the hyper-competitive tri-state residential market requires a proactive legal partner who protects your hard-earned capital. We de-risk the closing process for a seamless transition into property ownership.",
         "items": [
-          { "term": "Contract Analysis & Negotiation", "text": "Demystifying complex rider terms, structural contingencies, and financing conditions." },
-          { "term": "Title & Co-op/Condo Due Diligence", "text": "Uncovering hidden liens, analyzing building financial health, reviewing board minutes, and clearing title issues before they stall your closing." },
-          { "term": "Proactive Closing Management", "text": "Coordinating flawlessly with lenders, title companies, and sellers to ensure a predictable, stress-free settlement." }
+          "**Contract Analysis & Negotiation:** Demystifying complex rider terms, structural contingencies, and financing conditions.",
+          "**Title & Co-op/Condo Due Diligence:** Uncovering hidden liens, analyzing building financial health, reviewing board minutes, and clearing title issues before they stall your closing.",
+          "**Proactive Closing Management:** Coordinating flawlessly with lenders, title companies, and sellers to ensure a predictable, stress-free settlement."
         ]
       },
       {
         "title": "Commercial Development & Institutional Transactions",
         "intro": "We partner with developers and sponsors across the Five Boroughs, Westchester, and Northern New Jersey to navigate the complexities of urban and suburban real estate lifespans.",
         "items": [
-          { "term": "Acquisitions & Dispositions", "text": "Structuring joint ventures, managing complex property assemblages, and drafting rock-solid purchase and sale agreements." },
-          { "term": "Financing & Capital Stacks", "text": "Advising on senior debt, mezzanine financing, construction loans, and private equity placement." },
-          { "term": "Land Use & Due Diligence", "text": "Conducting exhaustive structural, zoning, and environmental due diligence to protect your downside before capital is deployed." }
+          "**Acquisitions & Dispositions:** Structuring joint ventures, managing complex property assemblages, and drafting rock-solid purchase and sale agreements.",
+          "**Financing & Capital Stacks:** Advising on senior debt, mezzanine financing, construction loans, and private equity placement.",
+          "**Land Use & Due Diligence:** Conducting exhaustive structural, zoning, and environmental due diligence to protect your downside before capital is deployed."
         ]
       },
       {
         "title": "High-Net-Worth Investors & Portfolio Optimization",
         "intro": "For private clients and investment syndicates moving significant capital into real estate assets, we provide discreet, high-tier legal infrastructure.",
         "items": [
-          { "term": "Luxury & High-Value Asset Acquisitions", "text": "Executing high-end residential and commercial purchases with maximum privacy and precision." },
-          { "term": "Entity Structuring & Asset Protection", "text": "Utilizing customized corporate structures (including Delaware and New York LLCs) to shield liability, streamline multi-jurisdictional tax filings, and facilitate smooth wealth transitions." },
-          { "term": "Commercial Leasing & Yield Protection", "text": "Drafting and negotiating retail, office, and industrial leases tailored to secure investor cash flows and mitigate tenant defaults." }
+          "**Luxury & High-Value Asset Acquisitions:** Executing high-end residential and commercial purchases with maximum privacy and precision.",
+          "**Entity Structuring & Asset Protection:** Utilizing customized corporate structures (including Delaware and New York LLCs) to shield liability, streamline multi-jurisdictional tax filings, and facilitate smooth wealth transitions.",
+          "**Commercial Leasing & Yield Protection:** Drafting and negotiating retail, office, and industrial leases tailored to secure investor cash flows and mitigate tenant defaults."
         ]
       }
     ]
@@ -42,13 +40,11 @@
   {
     "id": "business-corporate",
     "title": "Business & Corporate Law",
-    "icon": "briefcase",
-    "summary": "Counsel for business entities in all stages of growth, from entity formation and corporate structuring to contracts, business transactions and governance.",
     "intro": [
       "Mazzy Law represents business entities in all stages of growth, from small startups and emerging businesses to large and long-established business entities."
     ],
-    "points": [
-      "We serve as trusted general corporate counsel for small and mid-sized businesses across New York and New Jersey. Our firm guides entrepreneurs through every phase of business ownership, from initial entity formation (LLCs, S-Corps, and partnerships) to ongoing operational legal support, we protect your interests so you can focus on growth.",
+    "items": [
+      "We serve as trusted general corporate counsel for small and mid-sized businesses across New York and New Jersey. Our firm guides entrepreneurs through every phase of business ownership, from initial entity formation (**LLCs, S-Corps, and partnerships**) to ongoing operational legal support, we protect your interests so you can focus on growth.",
       "We offer legal advice on corporate structuring, mergers and acquisitions, regulatory compliance, contracts, capital markets, and risk management for companies at every stage of growth.",
       "Our team advises companies on legal rights and obligations, drafts and reviews contracts, facilitates business transactions, and helps ensure compliance with federal and state corporate regulations.",
       "We guide companies through complex business transactions, including negotiation, due diligence, contract drafting, and establishing governance frameworks to manage company operations."
@@ -57,27 +53,24 @@
   {
     "id": "tax",
     "title": "Tax Planning & Advisory Services",
-    "icon": "ledger",
-    "summary": "Counsel on the tax aspects of corporate deals and real estate transactions, personal tax and estate planning, and representation in audits and other tax controversies.",
+    "draftNote": "Original copy written for this site; the supplied text matched another firm's website. Pending client approval.",
     "intro": [
-      "Our tax attorneys deliver proactive counsel to minimize tax liabilities and ensure compliance at every level."
+      "Mazzy Law advises businesses, investors, families, and individuals on the tax considerations that shape their transactions and long-term plans, and represents clients in matters before federal and state tax authorities."
     ],
-    "points": [
-      "We guide clients through the tax aspects of corporate deals, whether structuring mergers and acquisitions or optimizing real estate transactions. For high-net-worth individuals and family offices, we provide personal tax and estate planning counsel, crafting strategies to preserve wealth across generations.",
-      "We represent clients in audits, negotiations, and other tax controversies with the IRS or state tax authorities, advocating to protect their interests in disputes. In all these areas, Mazzy Law offers the sophisticated, solution-oriented approach that business clients expect from an experienced tax adviser."
+    "items": [
+      "**Transactions:** Advising on the tax aspects of business and real estate transactions, including how mergers and acquisitions, entity formations, and property acquisitions and sales are structured.",
+      "**Personal and estate tax planning:** Counseling individuals and families on personal tax matters and on estate and gift tax planning, coordinated with their broader estate plans and the transfer of wealth to future generations.",
+      "**Audits and tax disputes:** Representing clients in audits, inquiries, and disputes with the IRS and state tax authorities."
     ]
   },
   {
     "id": "estate-planning",
     "title": "Estate Planning",
-    "icon": "document",
-    "summary": "Trust and estate planning, from simple wills and trusts to sophisticated tax savings techniques and charitable giving vehicles.",
     "intro": [
       "Our team supports clients with trust and estate planning from simple wills and trusts to the most sophisticated tax savings techniques and charitable giving vehicles. We help clients plan for the transfer of wealth in a tax efficient and cost-effective manner and provide comprehensive and attentive estate-planning counsel."
     ],
-    "listIntro": "We help clients make informed choices with respect to a variety of personal and technical issues including:",
-    "listStyle": "long",
-    "list": [
+    "itemsIntro": "We help clients make informed choices with respect to a variety of personal and technical issues including:",
+    "items": [
       "Wills, Health Care Proxies and Powers of Attorney",
       "Transferring assets during lifetime or upon death",
       "Creating insurance trusts, family trusts, grantor-retained annuity trusts (GRATS) and Qualified Personal Residence Trusts (QPRTs)",
@@ -90,15 +83,13 @@
   {
     "id": "litigation",
     "title": "Litigation",
-    "icon": "scales",
-    "summary": "Civil and commercial litigation in federal and state courts, as well as arbitration, mediation and administrative proceedings.",
     "intro": [
       "Our team manages a broad spectrum of civil litigation, specializing in commercial disputes.",
       "The commercial litigation attorneys at Mazzy Law are dedicated to protecting your business and securing your objectives. Our attorneys have broad experience at all levels of the federal and state judicial systems as well as in arbitration, mediation and administrative proceedings. We represent clients across the corporate spectrum, from emerging startups to Fortune 500 companies. Our trial attorneys favor a cost-effective, strategic approach, resolving disputes through savvy negotiation whenever possible, and aggressive, efficient litigation when necessary."
     ],
-    "listIntro": "We routinely handle commercial litigation involving:",
-    "listStyle": "short",
-    "list": [
+    "itemsIntro": "We routinely handle commercial litigation involving:",
+    "columns": 2,
+    "items": [
       "Breach of contract",
       "Breach of fiduciary duty",
       "Business and partnership fraud",

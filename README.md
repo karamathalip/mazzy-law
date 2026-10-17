@@ -7,27 +7,15 @@ small build script with **no dependencies** (Node 18+ only, nothing to install).
 - **Status:** draft pending attorney review. Search engines are told not to index it
   (`seo.indexable: false`).
 
-## Preview the two palettes
+## Palette and typography
 
-The same site ships with two visual variants.
-
-| Variant | URL | Character |
-| --- | --- | --- |
-| A — Light grey | `…/mazzy-law/?theme=grey` | Warm neutral ground, charcoal type, bronze accent, square corners, Cormorant Garamond headings |
-| B — Light blue | `…/mazzy-law/?theme=blue` | Pale blue ground, navy type, blue accent, soft corners and shadows, Newsreader headings |
-
-You can also use the small **Palette** switch at the bottom-right of every page. The choice is
-remembered in the browser while you click around.
-
-### Choosing the final palette
-
-In `src/data/site.json`:
-
-```json
-"theme": { "default": "blue", "available": ["grey", "blue"], "showSwitcher": false }
-```
-
-`default` picks the palette; `showSwitcher: false` removes the preview switch.
+- **Palette:** the client chose the light-grey palette with the gold accent (`theme.default: "grey"`
+  in `src/data/site.json`). The light-blue variant is still defined in `src/assets/css/tokens.css`
+  and can be previewed with `?theme=blue`; set `theme.showSwitcher` to `true` to bring back the
+  on-page palette switch.
+- **Typography:** Times New Roman throughout (a system font, so nothing is downloaded). Body text
+  is 12 pt; paragraph titles are 13–14 pt bold. Only the page titles and the home-page headline
+  are larger. All sizes are set in `src/assets/css/tokens.css`.
 
 ## Run it locally
 
@@ -43,13 +31,13 @@ build.mjs                  static site generator (zero dependencies)
 deploy.mjs                 publishes ./dist to the gh-pages branch
 src/
   data/
-    site.json              firm name, address, phone, menu, palette, form, SEO switches
+    site.json              firm name, address, phone, hours, menu, palette, photos, mission, form, SEO
     practice-areas.json    all practice-area copy
     attorney.json          biography, education, admissions, practice list
     disclaimers.json       disclaimers and notices
   layout/
     layout.mjs             <head>, header, footer, palette switch (shared by every page)
-    helpers.mjs            shared snippets (page header, contact band)
+    helpers.mjs            shared snippets (page header, photos, **bold** text)
     icons.mjs              inline SVG icons
   pages/                   one file per page
   assets/
@@ -57,11 +45,9 @@ src/
     css/base.css           reset, typography, layout primitives
     css/components.css     buttons, header, footer, forms, lists
     css/pages.css          page sections
-    css/fonts.css          @font-face rules
     js/main.js             menu, palette switch, map loader, contact form
     js/theme-init.js       applies the chosen palette before first paint (inlined)
-    fonts/                 self-hosted fonts
-    img/                   images
+    img/                   images (attorney portrait, favicon)
 docs/content-review.md     source-to-site mapping and items for attorney review
 docs/github-actions-deploy.yml   optional automatic deployment (see Deployment)
 ```
@@ -70,7 +56,8 @@ docs/github-actions-deploy.yml   optional automatic deployment (see Deployment)
 
 ### Change text
 
-Edit the JSON files in `src/data/`. No HTML knowledge is needed. Then run `npm run deploy`.
+Edit the JSON files in `src/data/`. No HTML knowledge is needed. Wrap words in `**double
+asterisks**` to make them bold. Then run `npm run deploy`.
 
 ### Add a page
 
@@ -83,14 +70,13 @@ The header, footer, palettes and SEO tags apply automatically.
 
 ### Add contact details that are not yet supplied
 
-In `src/data/site.json` fill in `email` and `hours`. They appear on the Contact page and in the
-footer as soon as they are non-empty. Nothing is shown while they are blank.
+In `src/data/site.json` fill in `email`. It appears on the Contact page and in the footer as soon
+as it is non-empty. Nothing is shown while it is blank.
 
-### Add the attorney photo
+### Change the attorney photo
 
-Put the file in `src/assets/img/` (for example `mazzy.jpg`, portrait 4:5, about 800×1000 px) and
-set `"photo": "assets/img/mazzy.jpg"` in `src/data/attorney.json`. The monogram is replaced on the
-Home and About pages.
+The portrait is `src/assets/img/m-mazzy.jpg` (square, 800×800 px). Replace the file, or point
+`"photo"` in `src/data/attorney.json` at a new one.
 
 ### Turn on the contact form
 
@@ -102,26 +88,29 @@ visitors to call instead. To activate it:
 
 The notice disappears and messages are delivered to the address configured in Formspree.
 
-### Replace the hero photograph
+### Replace the home-page photographs
 
-The home page uses a photograph of Midtown Manhattan by Michael Discenza, published on Unsplash
-under the [Unsplash License](https://unsplash.com/license) (free for commercial use, no
-attribution required). It is currently loaded from Unsplash's image CDN.
+The home page uses two photographs published on Unsplash under the
+[Unsplash License](https://unsplash.com/license) (free for commercial use, no attribution
+required), loaded from Unsplash's image CDN:
+
+- Hero: Midtown Manhattan at dusk by Michael Discenza (`hero` in `src/data/site.json`).
+- Mission & Values: a woman looking through binoculars at sunset by Eli Missing (`mission`).
 
 To self-host it or use a different picture:
 
-1. Save the image as `src/assets/img/hero-nyc.jpg` (landscape, about 2400 px wide, under 400 KB).
-2. In `src/data/site.json` set `"image": "assets/img/hero-nyc.jpg"` and
-   `"imageIsUnsplash": false`, and update `alt`, `credit` and `creditUrl`
-   (leave `credit` empty to hide the credit line).
+1. Save the image in `src/assets/img/` (hero: landscape, about 2400 px wide; mission: portrait
+   4:5, about 1200 px wide; each under 400 KB).
+2. In the `hero` or `mission` block of `src/data/site.json` set `"image"` to its path (for
+   example `"assets/img/hero-nyc.jpg"`) and `"imageIsUnsplash": false`, and update `alt`,
+   `credit` and `creditUrl`.
 
-If the image ever fails to load, the hero falls back to a solid dark background and stays
-readable.
+If a photograph ever fails to load, the hero falls back to a solid dark background and the
+mission section simply shows its text.
 
 ## Before going live
 
 - [ ] Attorney has reviewed every page and `docs/content-review.md`.
-- [ ] Final palette chosen and the preview switch turned off.
 - [ ] `seo.indexable` set to `true` in `src/data/site.json` (adds `sitemap.xml`, removes `noindex`).
 - [ ] If a custom domain is used: set `seo.siteUrl` to `https://<domain>/` and `seo.basePath` to
       `/`, and add the domain under the repository's Settings → Pages.
@@ -148,6 +137,6 @@ and push. After that `npm run deploy` is no longer needed.
 
 ## Licences
 
-- Fonts: Inter, Cormorant Garamond and Newsreader, SIL Open Font License 1.1.
-- Hero photograph: Michael Discenza on Unsplash, Unsplash License.
-- Icons and monogram: original work created for this site.
+- Photographs: Michael Discenza and Eli Missing on Unsplash, Unsplash License.
+- Attorney portrait: supplied by the client.
+- Icons: original work created for this site.

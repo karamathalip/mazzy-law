@@ -12,7 +12,6 @@ export default {
     const { root } = ctx;
     return `
 ${pageHeader({
-  eyebrow: 'Error 404',
   title: 'Page not found',
   lead: 'The page you requested does not exist or has moved.',
 })}

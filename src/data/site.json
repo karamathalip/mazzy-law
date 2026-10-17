@@ -1,9 +1,8 @@
 {
   "firmName": "Mazzy Law PLLC",
   "shortName": "Mazzy Law",
-  "attorneyName": "Mazzy",
-  "tagline": "Counsel for real estate, business, and estate matters.",
-  "description": "Mazzy Law PLLC advises individuals, entrepreneurs, business owners, investors, and corporate clients throughout New York and New Jersey on real estate transactions, business and corporate law, estate planning, tax planning, commercial transactions, and commercial litigation.",
+  "tagline": "A Law Firm Built for The Future.",
+  "description": "Mazzy Law PLLC advises individuals, entrepreneurs, business owners, investors, and corporate clients throughout New York and New Jersey on real estate, business and corporate law, estate planning, tax planning, and commercial transactions.",
 
   "address": {
     "line1": "535 Fifth Avenue, 4th Flr #1035",
@@ -16,7 +15,8 @@
     "href": "+19176719019"
   },
   "email": "",
-  "hours": "",
+  "hours": "Monday to Friday, 9:00 a.m. to 5:00 p.m.",
+  "hoursSchema": "Mo-Fr 09:00-17:00",
 
   "nav": [
     { "label": "Home", "path": "" },
@@ -31,15 +31,25 @@
   "theme": {
     "default": "grey",
     "available": ["grey", "blue"],
-    "showSwitcher": true
+    "showSwitcher": false
   },
 
   "hero": {
     "image": "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee",
     "imageIsUnsplash": true,
     "alt": "Midtown Manhattan skyline with the Empire State Building at dusk",
-    "credit": "Photograph by Michael Discenza on Unsplash",
+    "credit": "Michael Discenza",
     "creditUrl": "https://unsplash.com/photos/5omwAMDxmkU"
+  },
+
+  "mission": {
+    "title": "Mission & Values",
+    "text": "At Mazzy Law, we empower individuals and businesses to navigate today’s interconnected global market. We offer seamless, round-the-clock legal counsel for small to large enterprises, delivering strategic solutions when they matter most.",
+    "image": "https://images.unsplash.com/photo-1762380137576-1c696108f6e9",
+    "imageIsUnsplash": true,
+    "alt": "A woman looking through binoculars toward the horizon at sunset",
+    "credit": "Eli Missing",
+    "creditUrl": "https://unsplash.com/photos/NLKKqGW53WA"
   },
 
   "contactForm": {

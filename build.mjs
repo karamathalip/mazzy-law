@@ -21,7 +21,7 @@ const DIST = join(ROOT, 'dist');
 const readJson = async (name) => JSON.parse(await readFile(join(SRC, 'data', name), 'utf8'));
 
 // Order matters: tokens -> base -> components -> page-specific.
-const CSS_FILES = ['fonts.css', 'tokens.css', 'base.css', 'components.css', 'pages.css'];
+const CSS_FILES = ['tokens.css', 'base.css', 'components.css', 'pages.css'];
 
 async function build() {
   const started = Date.now();
@@ -36,8 +36,9 @@ async function build() {
   await rm(DIST, { recursive: true, force: true });
   await mkdir(join(DIST, 'assets', 'css'), { recursive: true });
 
-  // Static assets (fonts, images, scripts) are copied as-is.
-  for (const dir of ['fonts', 'img', 'js']) {
+  // Static assets (images, scripts) are copied as-is. The site uses the system
+  // font Times New Roman, so there are no font files to publish.
+  for (const dir of ['img', 'js']) {
     await cp(join(SRC, 'assets', dir), join(DIST, 'assets', dir), {
       recursive: true,
       // Maintainer notes and the inlined theme script are not published.

@@ -8,7 +8,7 @@ export default {
   render(ctx) {
     const { disclaimers } = ctx;
     return `
-${pageHeader({ eyebrow: 'Legal', title: disclaimers.title, lead: disclaimers.subtitle })}
+${pageHeader({ title: disclaimers.title, lead: disclaimers.subtitle })}
 
 <section class="section section--tight">
   <div class="container container--narrow">

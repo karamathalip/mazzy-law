@@ -5,10 +5,6 @@ import { esc, each, addressLine } from './helpers.mjs';
 import { icon } from './icons.mjs';
 
 const THEME_LABELS = { grey: 'Grey', blue: 'Blue' };
-const HEADING_FONT = {
-  grey: 'cormorant-garamond-latin-wght-normal.woff2',
-  blue: 'newsreader-latin-wght-normal.woff2',
-};
 
 function head(ctx) {
   const { site, page, root, themeInit } = ctx;
@@ -35,6 +31,7 @@ function head(ctx) {
   };
   if (site.phone.href) jsonLd.telephone = site.phone.href;
   if (site.email) jsonLd.email = site.email;
+  if (site.hoursSchema) jsonLd.openingHours = site.hoursSchema;
   if (siteUrl) jsonLd.url = siteUrl;
 
   return `<head>
@@ -51,8 +48,6 @@ ${canonical ? `<link rel="canonical" href="${esc(canonical)}">` : ''}
 ${canonical ? `<meta property="og:url" content="${esc(canonical)}">` : ''}
 <meta name="theme-color" content="#f3f2ef">
 <link rel="icon" href="${root}assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="${root}assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="${root}assets/fonts/${HEADING_FONT[site.theme.default]}" as="font" type="font/woff2" crossorigin>
 <script>${themeInit.trim()}</script>
 <link rel="stylesheet" href="${root}assets/css/site.css">
 <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
@@ -84,28 +79,33 @@ function header(ctx) {
             `<li><a class="site-nav__link" href="${root}${item.path}"${isCurrent(item.path) ? ' aria-current="page"' : ''}>${esc(item.label)}</a></li>`
         )}
       </ul>
-      ${
-        site.phone.display
-          ? `<a class="site-nav__phone" href="tel:${esc(site.phone.href)}">${icon('phone', { size: 18 })}<span>${esc(site.phone.display)}</span></a>`
-          : ''
-      }
     </nav>
   </div>
 </header>`;
 }
 
 function footer(ctx) {
-  const { site, root, year } = ctx;
+  const { site, page, root, year } = ctx;
+  // The Contact page already lists the address and telephone in its body, so the
+  // footer leaves them out there; every other page shows them once, here.
+  const showContact = !page.hideFooterContact;
+  const credits = (page.photoCredits || [])
+    .map((c) => `<a href="${esc(c.creditUrl)}" rel="noopener">${esc(c.credit)}</a>`)
+    .join(' and ');
   return `<footer class="site-footer">
   <div class="container site-footer__grid">
     <div class="site-footer__brand">
       <p class="site-footer__name">${esc(site.firmName)}</p>
-      <address class="site-footer__address">
+      ${
+        showContact
+          ? `<address class="site-footer__address">
         ${esc(site.address.line1)}<br>
         ${esc(site.address.city)}, ${esc(site.address.state)} ${esc(site.address.zip)}
       </address>
       ${site.phone.display ? `<p><a href="tel:${esc(site.phone.href)}">${esc(site.phone.display)}</a></p>` : ''}
-      ${site.email ? `<p><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></p>` : ''}
+      ${site.email ? `<p><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></p>` : ''}`
+          : ''
+      }
     </div>
     <nav class="site-footer__nav" aria-label="Footer">
       <p class="site-footer__heading">Site</p>
@@ -125,7 +125,7 @@ function footer(ctx) {
     <p><strong>Attorney Advertising.</strong> The materials and information contained on this website may be considered Attorney Advertising. Prior results do not guarantee a similar outcome. The content on this website is provided for informational purposes only and does not create an attorney-client relationship. <a href="${root}disclaimers/">Read the full disclaimers and notices</a>.</p>
     <p class="site-footer__meta">
       <span>&copy; ${year} ${esc(site.firmName)}</span>
-      ${site.hero.credit ? `<span><a href="${esc(site.hero.creditUrl)}" rel="noopener">${esc(site.hero.credit)}</a></span>` : ''}
+      ${credits ? `<span>Photographs by ${credits} on Unsplash</span>` : ''}
     </p>
    </div>
   </div>

@@ -1,82 +1,71 @@
-import { esc, each, pageHeader, addressLine } from '../layout/helpers.mjs';
+import { esc, each, pageHeader } from '../layout/helpers.mjs';
 import { icon } from '../layout/icons.mjs';
 
 export default {
   id: 'contact',
   path: 'contact/',
   title: 'Contact Us',
-  description: 'Contact Mazzy Law PLLC: 535 Fifth Avenue, 4th Flr #1035, New York, NY 10017. Telephone (917) 671-9019.',
+  description:
+    'Contact Mazzy Law PLLC: 535 Fifth Avenue, 4th Flr #1035, New York, NY 10017. Telephone (917) 671-9019. Monday to Friday, 9:00 a.m. to 5:00 p.m.',
+  // The address and telephone appear once on this page, in the body.
+  hideFooterContact: true,
   render(ctx) {
     const { site, practiceAreas, root } = ctx;
     const { formId } = site.contactForm;
     const active = Boolean(formId);
-    const mapQuery = encodeURIComponent(`${site.address.line1.split(',')[0]}, ${site.address.city}, ${site.address.state} ${site.address.zip}`);
-    const callText = site.phone.display ? ` Please call ${site.phone.display}.` : '';
+    const mapQuery = encodeURIComponent(
+      `${site.address.line1.split(',')[0]}, ${site.address.city}, ${site.address.state} ${site.address.zip}`
+    );
+    const callText = site.phone.display ? ' Please call us at the telephone number on this page.' : '';
 
     return `
-${pageHeader({
-  eyebrow: 'Contact Us',
-  title: 'Contact Us',
-  lead: `Contact ${site.firmName} by telephone or with the form on this page.`,
-})}
+${pageHeader({ title: 'Contact Us' })}
 
 <section class="section section--tight">
   <div class="container contact-layout">
     <div class="contact-details">
       <h2 class="contact-details__title">Office</h2>
-      <ul class="contact-list">
-        <li>
-          <span class="contact-list__icon">${icon('pin')}</span>
-          <div>
-            <p class="contact-list__label">Address</p>
+      <dl class="contact-list">
+        <div>
+          <dt>${icon('pin', { size: 20 })}<span>Address</span></dt>
+          <dd>
             <address>
               ${esc(site.firmName)}<br>
               ${esc(site.address.line1)}<br>
               ${esc(site.address.city)}, ${esc(site.address.state)} ${esc(site.address.zip)}
             </address>
             <a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=${mapQuery}" target="_blank" rel="noopener">Get directions<span class="visually-hidden"> (opens Google Maps in a new tab)</span></a>
-          </div>
-        </li>
+          </dd>
+        </div>
         ${
           site.phone.display
-            ? `<li>
-          <span class="contact-list__icon">${icon('phone')}</span>
-          <div>
-            <p class="contact-list__label">Telephone</p>
-            <p><a class="contact-list__value" href="tel:${esc(site.phone.href)}">${esc(site.phone.display)}</a></p>
-          </div>
-        </li>`
+            ? `<div>
+          <dt>${icon('phone', { size: 20 })}<span>Telephone</span></dt>
+          <dd><a href="tel:${esc(site.phone.href)}">${esc(site.phone.display)}</a></dd>
+        </div>`
             : ''
         }
         ${
           site.email
-            ? `<li>
-          <span class="contact-list__icon">${icon('document')}</span>
-          <div>
-            <p class="contact-list__label">Email</p>
-            <p><a class="contact-list__value" href="mailto:${esc(site.email)}">${esc(site.email)}</a></p>
-          </div>
-        </li>`
+            ? `<div>
+          <dt>${icon('document', { size: 20 })}<span>Email</span></dt>
+          <dd><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></dd>
+        </div>`
             : ''
         }
         ${
           site.hours
-            ? `<li>
-          <span class="contact-list__icon">${icon('ledger')}</span>
-          <div>
-            <p class="contact-list__label">Office hours</p>
-            <p>${esc(site.hours)}</p>
-          </div>
-        </li>`
+            ? `<div>
+          <dt>${icon('ledger', { size: 20 })}<span>Office hours</span></dt>
+          <dd>${esc(site.hours)}</dd>
+        </div>`
             : ''
         }
-      </ul>
+      </dl>
 
       <div class="map" data-map>
         <div class="map__placeholder">
-          <span class="map__pin">${icon('pin', { size: 28 })}</span>
-          <p class="map__address">${esc(addressLine(site.address))}</p>
-          <button class="btn btn--secondary btn--small" type="button" data-map-load data-map-src="https://www.google.com/maps?q=${mapQuery}&amp;output=embed" data-map-title="Map showing ${esc(addressLine(site.address))}">Show map</button>
+          <button class="btn btn--secondary btn--small" type="button" data-map-load data-map-src="https://www.google.com/maps?q=${mapQuery}&amp;output=embed" data-map-title="Map showing the office location">Show map</button>
           <p class="map__note">The map is provided by Google Maps and loads only when you select “Show map”.</p>
         </div>
       </div>

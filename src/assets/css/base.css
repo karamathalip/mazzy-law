@@ -21,7 +21,7 @@ body {
   color: var(--ink-soft);
   font-family: var(--font-body);
   font-size: var(--fs-400);
-  line-height: 1.65;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -65,8 +65,13 @@ h4 {
   font-family: var(--font-heading);
   font-weight: var(--heading-weight);
   letter-spacing: var(--heading-tracking);
-  line-height: 1.12;
+  line-height: 1.25;
   text-wrap: balance;
+}
+
+h1 {
+  font-weight: 400;
+  line-height: 1.1;
 }
 
 p {
@@ -113,6 +118,11 @@ textarea {
   max-width: calc(var(--container-narrow) + 2 * var(--gutter));
 }
 
+/* Long-form text: same left edge as the page title, with a comfortable line length. */
+.text-column {
+  max-width: var(--container-text);
+}
+
 .section {
   padding-block: var(--space-section);
 }
@@ -134,7 +144,7 @@ textarea {
   color: var(--accent);
   font-size: var(--fs-200);
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -143,7 +153,7 @@ textarea {
 }
 
 .section-title {
-  font-size: calc(var(--fs-700) * var(--heading-scale));
+  font-size: var(--fs-title);
 }
 
 .section-head {

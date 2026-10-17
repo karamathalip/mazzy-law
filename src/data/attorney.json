@@ -1,73 +1,16 @@
 {
-  "name": "Mazzy",
-  "role": "Attorney",
-  "photo": "",
-  "shortBio": [
-    "Mazzy advises individuals, entrepreneurs, business owners, investors, and corporate clients throughout New York and New Jersey on a broad range of legal and business matters.",
-    "He began his legal career as an Assistant District Attorney with the Kings County District Attorney’s Office. Before becoming an attorney, he worked as a banker with J.P. Morgan Chase & Co. and as a Financial Planner with Merrill Lynch Wealth Management."
-  ],
+  "name": "M. Mazzy",
+  "fullName": "Mohamed Mazzy",
+  "role": "Founder – Managing Partner",
+  "photo": "assets/img/m-mazzy.jpg",
+  "photoAlt": "Portrait of M. Mazzy",
   "biography": [
-    {
-      "heading": "",
-      "text": "Mazzy advises individuals, entrepreneurs, business owners, investors, and corporate clients throughout New York and New Jersey on a broad range of legal and business matters. His practice focuses on real estate transactions, business and corporate law, estate planning, tax planning, commercial transactions, and commercial litigation."
-    },
-    {
-      "heading": "Transactional practice",
-      "text": "Mazzy represents clients in real estate matters involving the acquisition, sale, development, financing, leasing, and ownership of property. He also advises businesses and entrepreneurs on formation, corporate structuring, contracts, partnerships, shareholder matters, and other business transactions. In addition, he assists individuals and families with estate planning and related tax considerations, with an emphasis on protecting assets and preserving wealth for future generations."
-    },
-    {
-      "heading": "Litigation experience",
-      "text": "Mazzy brings substantial litigation experience to his practice, having represented corporations, property owners, contractors, engineers, professionals, and other businesses in complex and high-exposure matters in state and federal courts throughout New York and New Jersey. His litigation experience includes commercial disputes, construction and premises liability, contractual disputes, professional negligence, product liability, insurance matters, and other complex business and tort litigation."
-    },
-    {
-      "heading": "A litigation background in transactional work",
-      "text": "His litigation background provides a valuable perspective in his transactional practice. Having seen firsthand how contractual provisions, business structures, and risk-allocation decisions can lead to disputes, Mazzy approaches transactions with an emphasis on anticipating potential issues, protecting clients’ interests, and developing practical solutions."
-    },
-    {
-      "heading": "Early legal career",
-      "text": "Mazzy began his legal career as an Assistant District Attorney with the Kings County District Attorney’s Office, where he litigated a diverse caseload from arraignment through final disposition. He later joined a well-respected law firm as a member of its Complex Tort & General Casualty Division."
-    },
-    {
-      "heading": "Banking and financial planning",
-      "text": "Before becoming an attorney, Mazzy worked as a banker with J.P. Morgan Chase & Co. and as a Financial Planner with Merrill Lynch Wealth Management. His background in banking and financial planning provides an additional business and financial perspective that informs his approach to real estate, corporate, estate planning, tax, and transactional matters."
-    }
+    "M. Mazzy advises individuals, entrepreneurs, business owners, investors, and corporate clients throughout New York and New Jersey on real estate, business and corporate law, estate planning, tax planning, commercial transactions, and litigation.",
+    "His transactional practice includes real estate acquisitions and sales, development, financing, leasing, business formation and structuring, contracts, partnerships, shareholder matters, and estate planning. He works closely with clients to protect assets, manage risk, and achieve their personal and business objectives.",
+    "Mazzy also brings extensive litigation experience representing corporations, property owners, contractors, engineers, professionals, and businesses in complex matters throughout New York and New Jersey. His litigation background includes commercial disputes, construction and premises liability, contractual disputes, professional negligence, product liability, and insurance matters. This experience allows him to anticipate potential disputes and address risk when structuring transactions and advising clients.",
+    "Mazzy began his legal career as an Assistant District Attorney with the Kings County District Attorney’s Office before joining a well-respected law firm’s Complex Commercial & Tort Division.",
+    "Before practicing law, Mazzy worked in banking and financial planning with J.P. Morgan Chase & Co. and Merrill Lynch Wealth Management. His financial background provides a practical business perspective that complements his legal practice."
   ],
-  "perspective": [
-    {
-      "title": "A litigation background",
-      "text": "Having seen firsthand how contractual provisions, business structures, and risk-allocation decisions can lead to disputes, Mazzy approaches transactions with an emphasis on anticipating potential issues, protecting clients’ interests, and developing practical solutions."
-    },
-    {
-      "title": "Courtroom experience",
-      "text": "Mazzy began his legal career as an Assistant District Attorney with the Kings County District Attorney’s Office, where he litigated a diverse caseload from arraignment through final disposition."
-    },
-    {
-      "title": "A financial perspective",
-      "text": "His background in banking and financial planning provides an additional business and financial perspective that informs his approach to real estate, corporate, estate planning, tax, and transactional matters."
-    }
-  ],
-  "background": {
-    "legal": [
-      { "role": "Assistant District Attorney", "org": "Kings County District Attorney’s Office" },
-      { "role": "Member, Complex Tort & General Casualty Division", "org": "Law firm" }
-    ],
-    "prior": [
-      { "role": "Banker", "org": "J.P. Morgan Chase & Co." },
-      { "role": "Financial Planner", "org": "Merrill Lynch Wealth Management" }
-    ]
-  },
-  "education": [
-    { "school": "Elizabeth Haub School of Law at Pace University, New York", "degree": "Juris Doctor (J.D.)" },
-    { "school": "The City University of New York", "degree": "Bachelor of Arts (B.A.)" }
-  ],
-  "barAdmissions": ["New York", "New Jersey"],
-  "courtAdmissions": [
-    "New York State Courts",
-    "New Jersey State Courts",
-    "United States District Court for the Southern District of New York",
-    "United States District Court for the Eastern District of New York"
-  ],
-  "honors": ["Advanced Appellate Advocacy, Elizabeth Haub School of Law at Pace University"],
   "practiceList": [
     "Real Estate Transactions",
     "Real Estate Acquisition and Sale",
@@ -79,6 +22,8 @@
     "Estate Planning",
     "Tax Planning and Tax-Related Matters",
     "Commercial Litigation",
+    "Property Claims",
+    "Partnership and Shareholder Disputes and Buyouts",
     "General Negligence and Tort Litigation",
     "Premises and Retail Liability",
     "Construction Accident and Defect Litigation",
@@ -86,17 +31,14 @@
     "Product Liability",
     "Automobile and Transportation Liability",
     "Insurance Coverage",
-    "Insurance Subrogation and Recovery",
-    "Property Claims",
-    "Partnership and Shareholder Disputes and Buyouts",
-    "False Arrest",
-    "Assault and Battery",
-    "Malicious Prosecution"
+    "Insurance Subrogation and Recovery"
   ],
-  "highlights": [
-    { "value": "New York & New Jersey", "label": "Bar admissions" },
-    { "value": "S.D.N.Y. & E.D.N.Y.", "label": "United States District Court admissions" },
-    { "value": "Former Assistant District Attorney", "label": "Kings County District Attorney’s Office" },
-    { "value": "J.D., Pace University", "label": "Elizabeth Haub School of Law" }
-  ]
+  "barAdmissions": ["New York", "New Jersey"],
+  "courtAdmissions": [
+    "New York State Courts",
+    "New Jersey State Courts",
+    "United States District Court for the Southern District of New York",
+    "United States District Court for the Eastern District of New York"
+  ],
+  "education": ["J.D., Pace University Elisabeth Haub School of Law"]
 }

@@ -8,11 +8,30 @@ export const esc = (value = '') =>
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
 
+/** Escape text, then turn **bold** markers from the content files into <strong>. */
+export const rich = (value = '') => esc(value).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+
 /** Join an array of HTML strings. */
 export const each = (items, fn) => (items || []).map(fn).join('\n');
 
 /** Full postal address on one line. */
 export const addressLine = (a) => `${a.line1}, ${a.city}, ${a.state} ${a.zip}`;
+
+/**
+ * Responsive <img> for a photo. Unsplash URLs are resized by Unsplash's CDN,
+ * so several widths are offered; any other path is used as-is.
+ */
+export const photo = ({ image, imageIsUnsplash, alt }, { root = '', className = '', widths = [800, 1200, 1600], sizes = '100vw', width, height, eager = false } = {}) => {
+  if (!image) return '';
+  const loading = eager ? 'fetchpriority="high"' : 'loading="lazy"';
+  const dims = width && height ? ` width="${width}" height="${height}"` : '';
+  if (imageIsUnsplash) {
+    const url = (w) => `${image}?auto=format&amp;fit=crop&amp;w=${w}&amp;q=70`;
+    const srcset = widths.map((w) => `${url(w)} ${w}w`).join(', ');
+    return `<img class="${className}" src="${url(widths[Math.min(1, widths.length - 1)])}" srcset="${srcset}" sizes="${sizes}" alt="${esc(alt)}"${dims} ${loading} decoding="async" onerror="this.hidden=true">`;
+  }
+  return `<img class="${className}" src="${root}${esc(image)}" alt="${esc(alt)}"${dims} ${loading} decoding="async">`;
+};
 
 /** Reusable page header used on every inner page. */
 export const pageHeader = ({ eyebrow, title, lead }) => `
@@ -21,21 +40,5 @@ export const pageHeader = ({ eyebrow, title, lead }) => `
     ${eyebrow ? `<p class="eyebrow">${esc(eyebrow)}</p>` : ''}
     <h1 class="page-header__title">${esc(title)}</h1>
     ${lead ? `<p class="page-header__lead">${esc(lead)}</p>` : ''}
-  </div>
-</section>`;
-
-/** Closing call-to-action band shared by all pages. */
-export const contactBand = ({ site, root }) => `
-<section class="cta-band" aria-labelledby="cta-band-title">
-  <div class="container cta-band__inner">
-    <div>
-      <p class="eyebrow eyebrow--on-dark">Contact</p>
-      <h2 id="cta-band-title" class="cta-band__title">Speak with ${esc(site.firmName)}</h2>
-      <p class="cta-band__text">${esc(addressLine(site.address))}</p>
-    </div>
-    <div class="cta-band__actions">
-      <a class="btn btn--light" href="${root}contact/">Contact Us</a>
-      ${site.phone.display ? `<a class="btn btn--ghost-light" href="tel:${esc(site.phone.href)}">Call ${esc(site.phone.display)}</a>` : ''}
-    </div>
   </div>
 </section>`;
