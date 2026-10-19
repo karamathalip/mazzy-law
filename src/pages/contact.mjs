@@ -6,7 +6,7 @@ export default {
   path: 'contact/',
   title: 'Contact Us',
   description:
-    'Contact Mazzy Law PLLC: 535 Fifth Avenue, 4th Flr #1035, New York, NY 10017. Telephone (917) 671-9019. Monday to Friday, 9:00 a.m. to 5:00 p.m.',
+    'Contact Mazzy Law PLLC: 535 Fifth Avenue, 4th Flr #1035, New York, NY 10017. Telephone (917) 671-9019. Monday to Friday from 9:00 a.m. to 5:00 p.m.',
   // The address and telephone appear once on this page, in the body.
   hideFooterContact: true,
   render(ctx) {

@@ -1,14 +1,14 @@
 {
   "name": "M. Mazzy",
   "fullName": "Mohamed Mazzy",
-  "role": "Founder – Managing Partner",
+  "role": "Founder - Managing Partner",
   "photo": "assets/img/m-mazzy.jpg",
   "photoAlt": "Portrait of M. Mazzy",
   "biography": [
     "M. Mazzy advises individuals, entrepreneurs, business owners, investors, and corporate clients throughout New York and New Jersey on real estate, business and corporate law, estate planning, tax planning, commercial transactions, and litigation.",
     "His transactional practice includes real estate acquisitions and sales, development, financing, leasing, business formation and structuring, contracts, partnerships, shareholder matters, and estate planning. He works closely with clients to protect assets, manage risk, and achieve their personal and business objectives.",
     "Mazzy also brings extensive litigation experience representing corporations, property owners, contractors, engineers, professionals, and businesses in complex matters throughout New York and New Jersey. His litigation background includes commercial disputes, construction and premises liability, contractual disputes, professional negligence, product liability, and insurance matters. This experience allows him to anticipate potential disputes and address risk when structuring transactions and advising clients.",
-    "Mazzy began his legal career as an Assistant District Attorney with the Kings County District Attorney’s Office before joining a well-respected law firm’s Complex Commercial & Tort Division.",
+    "Mazzy began his legal career as an Assistant District Attorney with the Kings County District Attorney's Office before joining a well-respected law firm’s Complex Commercial & Tort Division.",
     "Before practicing law, Mazzy worked in banking and financial planning with J.P. Morgan Chase & Co. and Merrill Lynch Wealth Management. His financial background provides a practical business perspective that complements his legal practice."
   ],
   "practiceList": [
@@ -33,12 +33,17 @@
     "Insurance Coverage",
     "Insurance Subrogation and Recovery"
   ],
-  "barAdmissions": ["New York", "New Jersey"],
+  "barAdmissions": [
+    "New York",
+    "New Jersey"
+  ],
   "courtAdmissions": [
     "New York State Courts",
     "New Jersey State Courts",
     "United States District Court for the Southern District of New York",
     "United States District Court for the Eastern District of New York"
   ],
-  "education": ["J.D., Pace University Elisabeth Haub School of Law"]
+  "education": [
+    "J.D., Pace University Elisabeth Haub School of Law"
+  ]
 }

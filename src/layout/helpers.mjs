@@ -8,8 +8,14 @@ export const esc = (value = '') =>
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
 
-/** Escape text, then turn **bold** markers from the content files into <strong>. */
-export const rich = (value = '') => esc(value).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+/**
+ * Escape text, then turn the two markers used in the content files into HTML:
+ * **bold** becomes <strong>, and [text](https://link) becomes a link that opens in a new tab.
+ */
+export const rich = (value = '') =>
+  esc(value)
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a class="text-link" href="$2" target="_blank" rel="noopener">$1<span class="visually-hidden"> (opens in a new tab)</span></a>');
 
 /** Join an array of HTML strings. */
 export const each = (items, fn) => (items || []).map(fn).join('\n');
