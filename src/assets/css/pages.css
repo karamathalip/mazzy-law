@@ -136,9 +136,11 @@
     border-radius: 0;
   }
   .mission__img {
-    aspect-ratio: 4 / 3;
-    max-height: 30rem;
-    object-position: 60% 72%;
+    /* Portrait crop anchored to the bottom of the portrait photo, so the person
+       with the binoculars stays fully in frame. */
+    aspect-ratio: 4 / 5;
+    max-height: none;
+    object-position: 70% 100%;
   }
 }
 
