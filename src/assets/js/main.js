@@ -84,9 +84,8 @@
   }
 
   /* ---- Contact form ------------------------------------------------------ */
-  // The form only becomes active when a Formspree form ID is set in
-  // src/data/site.json. Until then the fields are disabled in the HTML and
-  // this block does nothing.
+  // The form is active when a receiver is configured under contactForm in
+  // src/data/site.json. Without JavaScript it still posts normally.
   var form = document.querySelector('[data-contact-form]');
   if (form && form.getAttribute('data-active') === 'true') {
     var status = form.querySelector('[data-form-status]');
@@ -100,13 +99,20 @@
       if (!form.reportValidity()) return;
       submit.disabled = true;
       say('Sending your message…', 'pending');
-      fetch(form.action, {
+      fetch(form.getAttribute('data-ajax') || form.action, {
         method: 'POST',
         body: new FormData(form),
         headers: { Accept: 'application/json' },
       })
         .then(function (response) {
           if (!response.ok) throw new Error('Request failed');
+          return response.json().catch(function () {
+            return {};
+          });
+        })
+        .then(function (result) {
+          // formsubmit.co answers 200 with success "false" when it refuses a message.
+          if (result && String(result.success) === 'false') throw new Error(result.message || 'Rejected');
           form.reset();
           say('Thank you. Your message has been sent.', 'success');
         })

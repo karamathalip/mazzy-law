@@ -79,15 +79,19 @@ as it is non-empty. Nothing is shown while it is blank.
 The portrait is `src/assets/img/m-mazzy.jpg` (square, 800×800 px). Replace the file, or point
 `"photo"` in `src/data/attorney.json` at a new one.
 
-### Turn on the contact form
+### Contact form
 
-The form is built but deliberately **inactive**: the fields are disabled and a notice tells
-visitors to call instead. To activate it:
+Messages from the Contact page are delivered by [FormSubmit](https://formsubmit.co) to the
+address in `contactForm.to` in `src/data/site.json` (currently `kiscolearn@gmail.com`), with the
+subject in `contactForm.subject`.
 
-1. Create a form at https://formspree.io and copy its ID (the part after `/f/`).
-2. Set `"formId": "<that id>"` under `contactForm` in `src/data/site.json`.
-
-The notice disappears and messages are delivered to the address configured in Formspree.
+- **First use:** the very first message triggers an activation email from FormSubmit to that
+  address. Click its **Activate Form** button once; from then on every message is delivered.
+- **Changing the address:** edit `contactForm.to` and publish. The new address must be activated
+  the same way.
+- **Hiding the address from page source (optional):** after activation FormSubmit emails a random
+  alias string. Put that string in `contactForm.to` instead of the address.
+- **Using Formspree instead:** set `"provider": "formspree"` and `"formId": "<your form id>"`.
 
 ### Replace the home-page photographs
 

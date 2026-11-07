@@ -11,8 +11,16 @@ export default {
   hideFooterContact: true,
   render(ctx) {
     const { site, practiceAreas, root } = ctx;
-    const { formId } = site.contactForm;
-    const active = Boolean(formId);
+    // Where messages go. "formsubmit" (formsubmit.co) needs only the receiving
+    // address; "formspree" needs a form ID from formspree.io.
+    const cf = site.contactForm;
+    const endpoints =
+      cf.provider === 'formsubmit' && cf.to
+        ? { post: `https://formsubmit.co/${cf.to}`, ajax: `https://formsubmit.co/ajax/${cf.to}` }
+        : cf.provider === 'formspree' && cf.formId
+          ? { post: `https://formspree.io/f/${cf.formId}`, ajax: `https://formspree.io/f/${cf.formId}` }
+          : null;
+    const active = Boolean(endpoints);
     const mapQuery = encodeURIComponent(
       `${site.address.line1.split(',')[0]}, ${site.address.city}, ${site.address.state} ${site.address.zip}`
     );
@@ -80,7 +88,7 @@ ${pageHeader({ title: 'Contact Us' })}
         <p><strong>The online form is not yet active.</strong>${esc(callText)}</p>
       </div>`
       }
-      <form class="form" ${active ? `action="https://formspree.io/f/${esc(formId)}"` : ''} method="post" data-contact-form data-active="${active}" data-error-message="Your message could not be sent.${esc(callText)}"${active ? '' : ' aria-describedby="form-inactive"'}>
+      <form class="form" ${active ? `action="${esc(endpoints.post)}" data-ajax="${esc(endpoints.ajax)}"` : ''} method="post" data-contact-form data-active="${active}" data-error-message="Your message could not be sent.${esc(callText)}"${active ? '' : ' aria-describedby="form-inactive"'}>
         <fieldset ${active ? '' : 'disabled'}>
           <legend class="visually-hidden">Contact form</legend>
           <div class="form__row">
@@ -116,7 +124,9 @@ ${pageHeader({ title: 'Contact Us' })}
             <input id="cf-ack" name="acknowledgement" type="checkbox" value="yes" required>
             <label for="cf-ack">I understand that submitting a message through this form does not create an attorney-client relationship with ${esc(site.firmName)}.</label>
           </div>
-          <input class="visually-hidden" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input class="visually-hidden" type="text" name="${cf.provider === 'formsubmit' ? '_honey' : '_gotcha'}" tabindex="-1" autocomplete="off" aria-hidden="true">
+          ${cf.subject ? `<input type="hidden" name="_subject" value="${esc(cf.subject)}">` : ''}
+          ${cf.provider === 'formsubmit' ? '<input type="hidden" name="_template" value="table">' : ''}
           <button class="btn btn--primary" type="submit">Send message</button>
           <p class="form__status" data-form-status role="status" aria-live="polite"></p>
         </fieldset>

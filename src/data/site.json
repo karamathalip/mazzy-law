@@ -53,7 +53,9 @@
   },
 
   "contactForm": {
-    "provider": "formspree",
+    "provider": "formsubmit",
+    "to": "kiscolearn@gmail.com",
+    "subject": "New website enquiry - Mazzy Law PLLC",
     "formId": ""
   },
 
