@@ -81,17 +81,19 @@ The portrait is `src/assets/img/m-mazzy.jpg` (square, 800×800 px). Replace the 
 
 ### Contact form
 
-Messages from the Contact page are delivered by [FormSubmit](https://formsubmit.co) to the
-address in `contactForm.to` in `src/data/site.json` (currently `kiscolearn@gmail.com`), with the
-subject in `contactForm.subject`.
+Messages from the Contact page are delivered by [Web3Forms](https://web3forms.com) to
+kiscolearn@gmail.com. The settings are under `contactForm` in `src/data/site.json`:
 
-- **First use:** the very first message triggers an activation email from FormSubmit to that
-  address. Click its **Activate Form** button once; from then on every message is delivered.
-- **Changing the address:** edit `contactForm.to` and publish. The new address must be activated
-  the same way.
-- **Hiding the address from page source (optional):** after activation FormSubmit emails a random
-  alias string. Put that string in `contactForm.to` instead of the address.
-- **Using Formspree instead:** set `"provider": "formspree"` and `"formId": "<your form id>"`.
+- `accessKey`: the Web3Forms access key for the receiving inbox. Web3Forms designed it to be
+  public, so it can sit in the page source.
+- `subject`: the subject line of each message.
+- **Changing the receiving address:** request a new key for the new address at web3forms.com and
+  put it in `accessKey`.
+- **Other services:** `"provider": "formsubmit"` with `"to"`, or `"provider": "formspree"` with
+  `"formId"`, are also supported.
+
+If the background send fails, the form falls back to a normal page submission so the message is
+still delivered.
 
 ### Replace the home-page photographs
 

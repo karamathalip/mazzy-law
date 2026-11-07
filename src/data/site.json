@@ -3,7 +3,6 @@
   "shortName": "Mazzy Law",
   "tagline": "A Law Firm Built for The Future.",
   "description": "Mazzy Law PLLC advises individuals, entrepreneurs, business owners, investors, and corporate clients throughout New York and New Jersey on real estate, business and corporate law, estate planning, tax planning, and commercial transactions.",
-
   "address": {
     "line1": "535 Fifth Avenue, 4th Flr #1035",
     "city": "New York",
@@ -17,23 +16,38 @@
   "email": "",
   "hours": "Monday to Friday from 9:00 a.m. to 5:00 p.m.",
   "hoursSchema": "Mo-Fr 09:00-17:00",
-
   "nav": [
-    { "label": "Home", "path": "" },
-    { "label": "Practice Areas", "path": "practice-areas/" },
-    { "label": "About Us", "path": "about/" },
-    { "label": "Contact Us", "path": "contact/" }
+    {
+      "label": "Home",
+      "path": ""
+    },
+    {
+      "label": "Practice Areas",
+      "path": "practice-areas/"
+    },
+    {
+      "label": "About Us",
+      "path": "about/"
+    },
+    {
+      "label": "Contact Us",
+      "path": "contact/"
+    }
   ],
   "footerLinks": [
-    { "label": "Disclaimers & Notices", "path": "disclaimers/" }
+    {
+      "label": "Disclaimers & Notices",
+      "path": "disclaimers/"
+    }
   ],
-
   "theme": {
     "default": "blue",
-    "available": ["grey", "blue"],
+    "available": [
+      "grey",
+      "blue"
+    ],
     "showSwitcher": false
   },
-
   "hero": {
     "image": "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee",
     "imageIsUnsplash": true,
@@ -41,7 +55,6 @@
     "credit": "Michael Discenza",
     "creditUrl": "https://unsplash.com/photos/5omwAMDxmkU"
   },
-
   "mission": {
     "title": "Mission & Values",
     "text": "At Mazzy Law, we empower individuals and businesses to navigate today’s interconnected global market. We offer seamless, round-the-clock legal counsel for small to large enterprises, delivering strategic solutions when they matter most.",
@@ -51,14 +64,13 @@
     "credit": "Eli Missing",
     "creditUrl": "https://unsplash.com/photos/NLKKqGW53WA"
   },
-
   "contactForm": {
-    "provider": "formsubmit",
+    "provider": "web3forms",
+    "accessKey": "b53cae01-4948-4bfa-ad47-f77325a25489",
     "to": "kiscolearn@gmail.com",
     "subject": "New website enquiry - Mazzy Law PLLC",
     "formId": ""
   },
-
   "seo": {
     "siteUrl": "https://karamathalip.github.io/mazzy-law/",
     "basePath": "/mazzy-law/",

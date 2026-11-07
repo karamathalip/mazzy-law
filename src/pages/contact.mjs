@@ -11,11 +11,13 @@ export default {
   hideFooterContact: true,
   render(ctx) {
     const { site, practiceAreas, root } = ctx;
-    // Where messages go. "formsubmit" (formsubmit.co) needs only the receiving
-    // address; "formspree" needs a form ID from formspree.io.
+    // Where messages go. "web3forms" needs the access key web3forms.com emails to the
+    // receiving address; "formsubmit" needs only the address; "formspree" needs a form ID.
     const cf = site.contactForm;
     const endpoints =
-      cf.provider === 'formsubmit' && cf.to
+      cf.provider === 'web3forms' && cf.accessKey
+        ? { post: 'https://api.web3forms.com/submit', ajax: 'https://api.web3forms.com/submit' }
+        : cf.provider === 'formsubmit' && cf.to
         ? { post: `https://formsubmit.co/${cf.to}`, ajax: `https://formsubmit.co/ajax/${cf.to}` }
         : cf.provider === 'formspree' && cf.formId
           ? { post: `https://formspree.io/f/${cf.formId}`, ajax: `https://formspree.io/f/${cf.formId}` }
@@ -124,9 +126,16 @@ ${pageHeader({ title: 'Contact Us' })}
             <input id="cf-ack" name="acknowledgement" type="checkbox" value="yes" required>
             <label for="cf-ack">I understand that submitting a message through this form does not create an attorney-client relationship with ${esc(site.firmName)}.</label>
           </div>
-          <input class="visually-hidden" type="text" name="${cf.provider === 'formsubmit' ? '_honey' : '_gotcha'}" tabindex="-1" autocomplete="off" aria-hidden="true">
+          ${
+            cf.provider === 'web3forms'
+              ? `<input type="hidden" name="access_key" value="${esc(cf.accessKey)}">
+          <input type="hidden" name="from_name" value="${esc(site.firmName)} website">
+          ${cf.subject ? `<input type="hidden" name="subject" value="${esc(cf.subject)}">` : ''}
+          <input class="visually-hidden" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">`
+              : `<input class="visually-hidden" type="text" name="${cf.provider === 'formsubmit' ? '_honey' : '_gotcha'}" tabindex="-1" autocomplete="off" aria-hidden="true">
           ${cf.subject ? `<input type="hidden" name="_subject" value="${esc(cf.subject)}">` : ''}
-          ${cf.provider === 'formsubmit' ? '<input type="hidden" name="_template" value="table">' : ''}
+          ${cf.provider === 'formsubmit' ? '<input type="hidden" name="_template" value="table">' : ''}`
+          }
           <button class="btn btn--primary" type="submit">Send message</button>
           <p class="form__status" data-form-status role="status" aria-live="polite"></p>
         </fieldset>
