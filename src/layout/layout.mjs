@@ -7,7 +7,7 @@ import { icon } from './icons.mjs';
 const THEME_LABELS = { grey: 'Grey', blue: 'Blue' };
 
 function head(ctx) {
-  const { site, page, root, themeInit } = ctx;
+  const { site, page, root, themeInit, assetVersion } = ctx;
   const title = page.path === '' ? `${site.firmName} | ${page.title}` : `${page.title} | ${site.firmName}`;
   const description = page.description || site.description;
   const { siteUrl, indexable } = site.seo;
@@ -49,7 +49,7 @@ ${canonical ? `<meta property="og:url" content="${esc(canonical)}">` : ''}
 <meta name="theme-color" content="#f3f2ef">
 <link rel="icon" href="${root}assets/img/favicon.svg" type="image/svg+xml">
 <script>${themeInit.trim()}</script>
-<link rel="stylesheet" href="${root}assets/css/site.css">
+<link rel="stylesheet" href="${root}assets/css/site.css?v=${assetVersion}">
 <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
 </head>`;
 }
@@ -156,7 +156,7 @@ ${body}
 </main>
 ${footer(ctx)}
 ${themeSwitcher(ctx)}
-<script src="${root}assets/js/main.js" defer></script>
+<script src="${root}assets/js/main.js?v=${ctx.assetVersion}" defer></script>
 </body>
 </html>
 `;

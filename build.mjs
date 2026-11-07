@@ -9,6 +9,7 @@
 // appear in the menu, add one line to "nav" in src/data/site.json.
 
 import { readFile, writeFile, mkdir, rm, cp, readdir } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { createServer } from 'node:http';
 import { join, dirname, extname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -52,6 +53,11 @@ async function build() {
 
   const themeInit = await readFile(join(SRC, 'assets', 'js', 'theme-init.js'), 'utf8');
 
+  // Version stamp for the stylesheet and script URLs (?v=...). It changes whenever
+  // their content changes, so browsers never keep using a stale copy after a deploy.
+  const mainJs = await readFile(join(SRC, 'assets', 'js', 'main.js'), 'utf8');
+  const assetVersion = createHash('sha256').update(css).update(mainJs).digest('hex').slice(0, 10);
+
   // Every module in src/pages is a page.
   const pageFiles = (await readdir(join(SRC, 'pages'))).filter((f) => f.endsWith('.mjs')).sort();
   const built = [];
@@ -63,7 +69,7 @@ async function build() {
     // Relative prefix back to the site root, so the site works at any base path.
     // The 404 page can be served from any URL, so it uses the absolute base path.
     const root = page.absoluteLinks ? data.site.seo.basePath : depth === 0 ? './' : '../'.repeat(depth);
-    const ctx = { ...data, root, page, themeInit };
+    const ctx = { ...data, root, page, themeInit, assetVersion };
     const html = renderLayout(ctx, page.render(ctx));
     const out = isFile ? join(DIST, page.path) : join(DIST, page.path, 'index.html');
     await mkdir(dirname(out), { recursive: true });

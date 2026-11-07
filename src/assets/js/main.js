@@ -94,7 +94,10 @@
       status.textContent = message;
       status.setAttribute('data-state', state);
     };
+    var fallbackToNormalPost = false;
     form.addEventListener('submit', function (event) {
+      // After a network failure the form is sent the ordinary way (full page post).
+      if (fallbackToNormalPost) return;
       event.preventDefault();
       if (!form.reportValidity()) return;
       submit.disabled = true;
@@ -104,22 +107,34 @@
         body: new FormData(form),
         headers: { Accept: 'application/json' },
       })
-        .then(function (response) {
-          if (!response.ok) throw new Error('Request failed');
-          return response.json().catch(function () {
-            return {};
-          });
-        })
+        .then(
+          function (response) {
+            return response.json().catch(function () {
+              return { success: response.ok ? 'true' : 'false' };
+            });
+          },
+          function () {
+            // The request could not be made at all (network, blocked script, old cache):
+            // send the form as a normal post so the message still goes through.
+            fallbackToNormalPost = true;
+            HTMLFormElement.prototype.submit.call(form);
+            return null;
+          }
+        )
         .then(function (result) {
-          // formsubmit.co answers 200 with success "false" when it refuses a message.
-          if (result && String(result.success) === 'false') throw new Error(result.message || 'Rejected');
-          form.reset();
-          say('Thank you. Your message has been sent.', 'success');
-        })
-        .catch(function () {
-          say(form.getAttribute('data-error-message'), 'error');
-        })
-        .then(function () {
+          if (result === null) return;
+          var message = String((result && result.message) || '');
+          if (String(result && result.success) === 'false') {
+            // formsubmit.co: the very first message only triggers the activation email.
+            if (/activat/i.test(message)) {
+              say('This form is waiting for activation: an activation email has been sent to the receiving address.', 'error');
+            } else {
+              say(form.getAttribute('data-error-message'), 'error');
+            }
+          } else {
+            form.reset();
+            say('Thank you. Your message has been sent.', 'success');
+          }
           submit.disabled = false;
         });
     });
