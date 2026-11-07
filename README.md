@@ -9,8 +9,9 @@ small build script with **no dependencies** (Node 18+ only, nothing to install).
 
 ## Palette and typography
 
-- **Palette:** the client chose the light-grey palette with the gold accent (`theme.default: "grey"`
-  in `src/data/site.json`). The light-blue variant is still defined in `src/assets/css/tokens.css`.
+- **Palette:** the site uses the light-blue palette (`theme.default: "blue"` in
+  `src/data/site.json`). The light-grey/gold variant is still defined in `src/assets/css/tokens.css`;
+  set `theme.default` to `"grey"` to switch back.
   While `theme.showSwitcher` is `false` the palette is locked: `?theme=` links and any choice a
   visitor made during the preview are ignored. Set it to `true` to bring back the palette switch.
 - **Typography:** Times New Roman throughout (a system font, so nothing is downloaded). Body text

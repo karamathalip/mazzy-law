@@ -17,8 +17,8 @@ export default {
     <p class="eyebrow eyebrow--on-dark">${esc(site.firmName)} &middot; ${esc(site.address.city)}, ${esc(site.address.state)}</p>
     <h1 id="hero-title" class="hero__title">${esc(site.tagline)}</h1>
     <div class="hero__actions">
-      <a class="btn btn--light" href="${root}contact/">Contact Us</a>
-      <a class="btn btn--ghost-light" href="${root}practice-areas/">Practice Areas</a>
+      <a class="btn btn--light" href="${root}practice-areas/">Practice Areas</a>
+      <a class="btn btn--ghost-light" href="${root}contact/">Contact Us</a>
     </div>
   </div>
 </section>

@@ -29,7 +29,7 @@
   ],
 
   "theme": {
-    "default": "grey",
+    "default": "blue",
     "available": ["grey", "blue"],
     "showSwitcher": false
   },

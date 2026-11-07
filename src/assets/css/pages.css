@@ -65,10 +65,23 @@
 }
 
 .hero__actions {
-  display: flex;
-  flex-wrap: wrap;
+  /* Two buttons of identical width, side by side, on every screen size. */
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-3);
+  max-width: 24rem;
   margin-top: var(--space-6);
+}
+
+.hero__actions .btn {
+  width: 100%;
+  padding-inline: var(--space-3);
+  white-space: nowrap;
+}
+
+.hero__title,
+.hero .eyebrow {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
 }
 
 @media (min-width: 900px) {
@@ -103,6 +116,30 @@
 
 .mission__img[hidden] {
   display: none;
+}
+
+/* Phones and tablets: text first, then the photo edge to edge with no frame of
+   background around it, running straight into the footer. */
+@media (max-width: 899.98px) {
+  .mission {
+    padding-bottom: 0;
+  }
+  .mission__inner {
+    padding-inline: 0;
+    gap: var(--space-6);
+  }
+  .mission__body {
+    order: -1;
+    padding-inline: var(--gutter);
+  }
+  .mission__media {
+    border-radius: 0;
+  }
+  .mission__img {
+    aspect-ratio: 4 / 3;
+    max-height: 30rem;
+    object-position: 60% 72%;
+  }
 }
 
 .mission__title {

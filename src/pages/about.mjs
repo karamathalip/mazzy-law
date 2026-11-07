@@ -5,7 +5,7 @@ export default {
   path: 'about/',
   title: 'About Us',
   description:
-    'About Mazzy Law PLLC and its Founder and Managing Partner, M. Mazzy: biography, practice areas, bar and court admissions, and education.',
+    'About Mazzy Law PLLC and its Founder and Managing Partner, Mohamed Mazzy: biography, practice areas, bar and court admissions, and education.',
   render(ctx) {
     const { site, attorney, root } = ctx;
     return `

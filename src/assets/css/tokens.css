@@ -141,9 +141,9 @@
   --page-header-image: linear-gradient(180deg, #dbe8f6 0%, #eef4fa 100%);
 
   --hero-base: #0a1c36;
-  --hero-filter: saturate(0.9) brightness(0.95);
-  --hero-overlay: linear-gradient(90deg, rgba(9, 27, 53, 0.92) 0%, rgba(11, 33, 64, 0.74) 42%, rgba(14, 40, 78, 0.22) 100%);
-  --hero-overlay-mobile: linear-gradient(180deg, rgba(9, 27, 53, 0.7) 0%, rgba(9, 27, 53, 0.88) 100%);
+  --hero-filter: saturate(1) brightness(1.08);
+  --hero-overlay: linear-gradient(90deg, rgba(9, 27, 53, 0.8) 0%, rgba(11, 33, 64, 0.52) 45%, rgba(14, 40, 78, 0.06) 100%);
+  --hero-overlay-mobile: linear-gradient(180deg, rgba(9, 27, 53, 0.42) 0%, rgba(9, 27, 53, 0.58) 55%, rgba(9, 27, 53, 0.74) 100%);
   --hero-accent: #a9cdf5;
 
   --dark-bg: #0c2140;
