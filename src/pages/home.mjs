@@ -31,7 +31,7 @@ export default {
         widths: [600, 900, 1200],
         sizes: '(min-width: 900px) 40vw, 100vw',
         width: 900,
-        height: 1125,
+        height: 675,
       })}
     </figure>
     <div class="mission__body">

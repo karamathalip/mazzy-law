@@ -102,12 +102,13 @@ The home page uses two photographs published on Unsplash under the
 required), loaded from Unsplash's image CDN:
 
 - Hero: Midtown Manhattan at dusk by Michael Discenza (`hero` in `src/data/site.json`).
-- Mission & Values: a woman looking through binoculars at sunset by Eli Missing (`mission`).
+- Mission & Values: the Lower Manhattan skyline with One World Trade Center, seen from Liberty
+  Island, by Massimiliano Morosinotto (`mission`).
 
 To self-host it or use a different picture:
 
-1. Save the image in `src/assets/img/` (hero: landscape, about 2400 px wide; mission: portrait
-   4:5, about 1200 px wide; each under 400 KB).
+1. Save the image in `src/assets/img/` (hero: landscape, about 2400 px wide; mission: landscape
+   4:3, about 1200 px wide; each under 400 KB).
 2. In the `hero` or `mission` block of `src/data/site.json` set `"image"` to its path (for
    example `"assets/img/hero-nyc.jpg"`) and `"imageIsUnsplash": false`, and update `alt`,
    `credit` and `creditUrl`.
@@ -144,6 +145,6 @@ and push. After that `npm run deploy` is no longer needed.
 
 ## Licences
 
-- Photographs: Michael Discenza and Eli Missing on Unsplash, Unsplash License.
+- Photographs: Michael Discenza and Massimiliano Morosinotto on Unsplash, Unsplash License.
 - Attorney portrait: supplied by the client.
 - Icons: original work created for this site.

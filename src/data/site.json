@@ -58,11 +58,11 @@
   "mission": {
     "title": "Mission & Values",
     "text": "At Mazzy Law, we empower individuals and businesses to navigate today’s interconnected global market. We offer seamless, round-the-clock legal counsel for small to large enterprises, delivering strategic solutions when they matter most.",
-    "image": "https://images.unsplash.com/photo-1762380137576-1c696108f6e9",
+    "image": "https://images.unsplash.com/photo-1765187275519-547fb2d0bb6a",
     "imageIsUnsplash": true,
-    "alt": "A woman looking through binoculars toward the horizon at sunset",
-    "credit": "Eli Missing",
-    "creditUrl": "https://unsplash.com/photos/NLKKqGW53WA"
+    "alt": "Lower Manhattan skyline with One World Trade Center, seen across the water from Liberty Island",
+    "credit": "Massimiliano Morosinotto",
+    "creditUrl": "https://unsplash.com/photos/_ZEk8iXVWyI"
   },
   "contactForm": {
     "provider": "web3forms",

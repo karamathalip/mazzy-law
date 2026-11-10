@@ -108,10 +108,10 @@
 .mission__img {
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 5;
-  max-height: 34rem;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  object-position: 60% 40%;
+  /* Landscape skyline: keep One World Trade Center (left of centre) in frame. */
+  object-position: 42% 50%;
 }
 
 .mission__img[hidden] {
@@ -136,11 +136,9 @@
     border-radius: 0;
   }
   .mission__img {
-    /* Portrait crop anchored to the bottom of the portrait photo, so the person
-       with the binoculars stays fully in frame. */
-    aspect-ratio: 4 / 5;
-    max-height: none;
-    object-position: 70% 100%;
+    /* Edge-to-edge landscape crop; the skyline and waterline stay in frame. */
+    aspect-ratio: 4 / 3;
+    object-position: 42% 50%;
   }
 }
 
