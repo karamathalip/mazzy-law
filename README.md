@@ -82,7 +82,7 @@ The portrait is `src/assets/img/m-mazzy.jpg` (square, 800×800 px). Replace the 
 ### Contact form
 
 Messages from the Contact page are delivered by [Web3Forms](https://web3forms.com) to
-kiscolearn@gmail.com. The settings are under `contactForm` in `src/data/site.json`:
+mmazzy@mazzylaw.com. The settings are under `contactForm` in `src/data/site.json`:
 
 - `accessKey`: the Web3Forms access key for the receiving inbox. Web3Forms designed it to be
   public, so it can sit in the page source.
