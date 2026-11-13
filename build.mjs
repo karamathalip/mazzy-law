@@ -101,6 +101,11 @@ async function build() {
     join(DIST, '.htaccess'),
     [
       'Options -Indexes',
+      // The site sits inside the WordPress folder of the hosting account. Turning the
+      // rewrite engine on here (with no rules) stops WordPress's rules from applying.
+      '<IfModule mod_rewrite.c>',
+      '  RewriteEngine On',
+      '</IfModule>',
       `ErrorDocument 404 ${data.site.seo.basePath}404.html`,
       // Only the real domain may be indexed: any other host name that reaches these
       // files (Bluehost's temporary address, for example) is sent a noindex header.
