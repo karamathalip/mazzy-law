@@ -3,6 +3,9 @@
 //
 //   node build.mjs          -> writes ./dist
 //   node build.mjs --serve  -> builds, then serves ./dist at http://localhost:4173
+//   node build.mjs --target=github -> builds the GitHub Pages preview (noindex, /mazzy-law/)
+//
+// Without --target the build is for the live site, https://mazzylaw.com/ (Bluehost).
 //
 // Content lives in src/data/*.json. Pages live in src/pages/*.mjs.
 // To add a page: create src/pages/<name>.mjs (see README) and, if it should
@@ -19,7 +22,19 @@ const ROOT = dirname(fileURLToPath(import.meta.url));
 const SRC = join(ROOT, 'src');
 const DIST = join(ROOT, 'dist');
 
-const readJson = async (name) => JSON.parse(await readFile(join(SRC, 'data', name), 'utf8'));
+const TARGET = (process.argv.find((a) => a.startsWith('--target=')) || '').slice('--target='.length);
+
+const readJson = async (name) => {
+  const json = JSON.parse(await readFile(join(SRC, 'data', name), 'utf8'));
+  // site.json: settings for another hosting target override the live-site SEO settings.
+  if (name === 'site.json' && json.seo) {
+    const override = TARGET ? json.seo.targets && json.seo.targets[TARGET] : null;
+    if (TARGET && !override) throw new Error(`Unknown --target "${TARGET}" (see seo.targets in site.json)`);
+    const { targets, ...seo } = json.seo;
+    json.seo = { ...seo, ...override };
+  }
+  return json;
+};
 
 // Order matters: tokens -> base -> components -> page-specific.
 const CSS_FILES = ['tokens.css', 'base.css', 'components.css', 'pages.css'];
@@ -80,6 +95,36 @@ async function build() {
   // Tell GitHub Pages not to run Jekyll.
   await writeFile(join(DIST, '.nojekyll'), '');
 
+  // Apache (Bluehost): custom 404 page, no directory listings, sensible caching.
+  // GitHub Pages ignores this file.
+  await writeFile(
+    join(DIST, '.htaccess'),
+    [
+      'Options -Indexes',
+      `ErrorDocument 404 ${data.site.seo.basePath}404.html`,
+      // Only the real domain may be indexed: any other host name that reaches these
+      // files (Bluehost's temporary address, for example) is sent a noindex header.
+      ...(data.site.seo.indexable && data.site.seo.siteUrl
+        ? [
+            `SetEnvIfNoCase Host ^(www\\.)?${new URL(data.site.seo.siteUrl).hostname.replace(/^www\./, '').replace(/\./g, '\\.')}$ LIVE_HOST`,
+            '<IfModule mod_headers.c>',
+            '  Header set X-Robots-Tag "noindex, nofollow" env=!LIVE_HOST',
+            '</IfModule>',
+          ]
+        : []),
+      '<IfModule mod_expires.c>',
+      '  ExpiresActive On',
+      '  ExpiresByType text/html "access plus 0 seconds"',
+      '  ExpiresByType text/css "access plus 1 year"',
+      '  ExpiresByType text/javascript "access plus 1 year"',
+      '  ExpiresByType application/javascript "access plus 1 year"',
+      '  ExpiresByType image/jpeg "access plus 1 week"',
+      '  ExpiresByType image/svg+xml "access plus 1 week"',
+      '</IfModule>',
+      '',
+    ].join('\n')
+  );
+
   const { siteUrl, indexable } = data.site.seo;
   if (indexable && siteUrl) {
     const urls = built
@@ -95,7 +140,7 @@ async function build() {
     await writeFile(join(DIST, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
   }
 
-  console.log(`Built ${built.length} pages into dist/ in ${Date.now() - started} ms`);
+  console.log(`Built ${built.length} pages for ${TARGET || 'the live site'} (${data.site.seo.siteUrl}) into dist/ in ${Date.now() - started} ms`);
 }
 
 const MIME = {

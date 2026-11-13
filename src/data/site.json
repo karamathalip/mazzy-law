@@ -72,8 +72,15 @@
     "formId": ""
   },
   "seo": {
-    "siteUrl": "https://karamathalip.github.io/mazzy-law/",
-    "basePath": "/mazzy-law/",
-    "indexable": false
+    "siteUrl": "https://mazzylaw.com/",
+    "basePath": "/",
+    "indexable": true,
+    "targets": {
+      "github": {
+        "siteUrl": "https://karamathalip.github.io/mazzy-law/",
+        "basePath": "/mazzy-law/",
+        "indexable": false
+      }
+    }
   }
 }
