@@ -96,15 +96,20 @@
 }
 
 /* From 1100px: the client's preferred framing. The spire tip sits just under the
-   header at every width (the photo fills the width, so its height is 66.69vw and
-   the tip is 7.25vw from its top). The second term stops the photo from ever
-   lifting so far that a gap would open at the bottom of the banner. */
+   header, and the banner is tall enough (up to the screen height) to show the
+   skyline below it at the photo's true proportions. The photo fills the width, so
+   its height is 66.69vw and the tip is 7.25vw from its top; the second term of
+   object-position stops the photo lifting so far that a gap opens at the bottom. */
 @media (min-width: 1100px) {
+  .hero {
+    --hero-h: max(clamp(30rem, 74vh, 44rem), min(49vw, calc(100vh - var(--header-h))));
+    min-height: var(--hero-h);
+  }
   .hero__img {
-    object-position: 62%
-      max(calc(6px - 7.25vw), min(0px, calc(clamp(30rem, 74vh, 44rem) - 66.69vw + 12px)));
+    object-position: 62% max(calc(6px - 7.25vw), min(0px, calc(var(--hero-h) - 66.69vw + 12px)));
   }
 }
+
 
 /* ---- Home: mission & values --------------------------------------------------- */
 
