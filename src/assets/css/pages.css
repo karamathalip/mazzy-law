@@ -88,6 +88,11 @@
   .hero__media::after {
     background: var(--hero-overlay);
   }
+  /* Wide screens crop the photo top and bottom: anchor it near the top so the
+     Empire State Building's spire (about 11% down the photo) stays in frame. */
+  .hero__img {
+    object-position: 62% 15%;
+  }
 }
 
 /* ---- Home: mission & values --------------------------------------------------- */
